@@ -100,7 +100,7 @@ namespace WebApi.Services
         public ServiceResponse<List<Book>> GetAllBooks()
         {
             var serviceResponse = new ServiceResponse<List<Book>>();
-            var dbBook = _context.Books.Include(x => x.BookAuthors).ToList();
+            var dbBook = _context.Books.ToList();
             serviceResponse.Data = dbBook;
             return serviceResponse;
         }

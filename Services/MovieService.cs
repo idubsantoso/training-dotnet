@@ -67,7 +67,7 @@ namespace WebApi.Services
         public ServiceResponse<List<Movie>> GetAllMovies()
         {
             var serviceResponse = new ServiceResponse<List<Movie>>();
-            var dbMovie = _context.Movies.Include(x => x.CinemaStudioMovies).ToList();
+            var dbMovie = _context.Movies.ToList();
             serviceResponse.Data = dbMovie;
             return serviceResponse;
         }
@@ -80,7 +80,7 @@ namespace WebApi.Services
             return serviceResponse;
         }
 
-        public MovieWithCinemasDto GetMovieWithCinemaById(int id, DateTime schedule)
+        public MovieWithCinemasDto GetMovieWithCinemaById(int id)
         {
             var serviceResponse = new ServiceResponse<MovieDto>();
             var movieWithCinemas = _context.Movies.Where(n => n.Id == id).Select(movie => new MovieWithCinemasDto(){

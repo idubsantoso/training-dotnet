@@ -18,6 +18,10 @@ namespace dotnet_rpg
             CreateMap<User, UserDto>();
             CreateMap<Author, AuthorDto>();
             CreateMap<AuthorDto, Author>();
+            CreateMap<Movie, MovieDto>();
+            CreateMap<MovieDto, Movie>();
+            CreateMap<CinemaStudio, CinemaDto>();
+            CreateMap<CinemaDto, CinemaStudio>();
         }
     }
 }

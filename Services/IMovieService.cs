@@ -11,7 +11,7 @@ namespace WebApi.Services
         Task<ServiceResponse<MovieDto>> UpdateMovie(MovieDto dto);
         ServiceResponse<List<Movie>> GetAllMovies();
         Task<ServiceResponse<MovieDto>> GetMovieById(int id);
-        MovieWithCinemasDto GetMovieWithCinemaById(int id, DateTime schedule);
+        MovieWithCinemasDto GetMovieWithCinemaById(int id);
         Task<ServiceResponse<MovieDto>> DeleteMovie(int id);
     }
 }

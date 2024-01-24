@@ -98,7 +98,7 @@ namespace WebApi.Services
         public ServiceResponse<List<CinemaStudio>> GetAllCinemaStudios()
         {
             var serviceResponse = new ServiceResponse<List<CinemaStudio>>();
-            var dbCinema = _context.CinemaStudios.Include(x => x.CinemaStudioMovies).ToList();
+            var dbCinema = _context.CinemaStudios.ToList();
             serviceResponse.Data = dbCinema;
             return serviceResponse;
         }

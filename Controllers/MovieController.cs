@@ -30,9 +30,9 @@ namespace WebApi.Controllers
         }
 
 
-        [HttpGet("{id}/{schedule}")]
-        public ActionResult<MovieWithCinemasDto> GetSingleMovieWithCinema(int id, DateTime schedule){
-            return Ok( _movieService.GetMovieWithCinemaById(id, schedule));
+        [HttpGet("{id}")]
+        public ActionResult<MovieWithCinemasDto> GetSingleMovieWithCinema(int id){
+            return Ok( _movieService.GetMovieWithCinemaById(id));
         }
 
         [HttpPost]
