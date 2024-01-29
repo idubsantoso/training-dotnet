@@ -8,6 +8,7 @@ using WebApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Models;
 using WebApi.Queue;
+using WebApi.Filters;
 
 namespace WebApi.Controllers
 {
@@ -38,6 +39,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
+        [ValidationModel]
         public async Task<ActionResult<ServiceResponse<List<BookDto>>>> AddBookWithAuthor(BookDto newBook)
         {
             return Ok(await _bookService.AddNewBookWithAuthor(newBook));

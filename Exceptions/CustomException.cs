@@ -20,4 +20,11 @@ namespace WebApi.Exceptions
             StatusCode = statusCode;
         }
     }
+
+    public class Flash
+    {
+        public string Message { get; set; }
+        public Dictionary<string, List<string>> Errors { get; set; }
+        public int Status { get; set; }
+    }
 }

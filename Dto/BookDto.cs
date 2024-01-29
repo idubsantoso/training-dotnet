@@ -10,8 +10,8 @@ namespace WebApi.Dto
     public class BookDto
     {
         public int? Id { get; set; }
-        [StringLength(100, MinimumLength = 5)]
-        [Required(ErrorMessage ="Please enter the title of your book")]
+        [Required]
+        [MinLength(3)]
         public string? Title { get; set; }
         [StringLength(500)]
         public string? Description { get; set; }

@@ -1,8 +1,10 @@
 ﻿using Hangfire;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Authorization;
 using WebApi.Data;
 using WebApi.Dto;
+using WebApi.Exceptions;
 using WebApi.Helpers;
 using WebApi.Queue;
 using WebApi.Services;
@@ -31,6 +33,10 @@ var builder = WebApplication.CreateBuilder(args);
     services.AddScoped<IMovieService, MovieService>();
     services.AddResponseCaching();
     services.AddHttpClient();
+    services.Configure<ApiBehaviorOptions>(options =>
+    {
+        options.SuppressModelStateInvalidFilter = true;
+    });
 
     services
         .AddHostedService<QueuedHostedService>()
