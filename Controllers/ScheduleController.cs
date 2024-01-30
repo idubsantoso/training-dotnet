@@ -49,7 +49,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("RecurringJob")]
+        [Route("recurringjob/hours")]
         public string RecurringJobs()
         {
             //Recurring Jobs
@@ -59,44 +59,5 @@ namespace WebApi.Controllers
             return "Welcome user in Recurring Job Demo!";
         }
 
-        [HttpGet]
-        [Route("BatchesJob")]
-        public string BatchesJob()
-        {
-            //Batches - This option is available into hangfire Pro only
-            //Batch is a group of background jobs that is created atomically and considered as a single entity.
-            //Commenting the code as it's only available into Pro version
-
-
-            //var batchId = BatchJob.StartNew(x =>
-            //{
-            //    x.Enqueue(() => Console.WriteLine("Batch Job 1"));
-            //    x.Enqueue(() => Console.WriteLine("Batch Job 2"));
-            //});
-
-            return "Welcome user in Batches Job Demo!";
-        }
-
-        [HttpGet]
-        [Route("BatchContinuationsJob")]
-        public string BatchContinuationsJob()
-        {
-            //Batch Continuations - This option is available into hangfire Pro only
-            //Batch continuation is fired when all background jobs in a parent batch finished.
-            //Commenting the code as it's only available into Pro version
-
-            //var batchId = BatchJob.StartNew(x =>
-            //{
-            //    x.Enqueue(() => Console.WriteLine("Batch Job 1"));
-            //    x.Enqueue(() => Console.WriteLine("Batch Job 2"));
-            //});
-
-            //BatchJob.ContinueBatchWith(batchId, x =>
-            //{
-            //    x.Enqueue(() => Console.WriteLine("Last Job"));
-            //});
-
-            return "Welcome user in Batch Continuations Job Demo!";
-        }
     }
 }
