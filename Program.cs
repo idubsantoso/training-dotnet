@@ -1,4 +1,5 @@
 ﻿using Hangfire;
+using Hangfire.SqlServer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Authorization;
@@ -18,6 +19,20 @@ var builder = WebApplication.CreateBuilder(args);
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
     services.AddCors();
     services.AddControllers();
+
+    builder.Services.AddHangfire(configuration => configuration
+       .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+       .UseSimpleAssemblyNameTypeSerializer()
+       .UseRecommendedSerializerSettings()
+       .UseSqlServerStorage(builder.Configuration.GetConnectionString("DefaultConnection"), new SqlServerStorageOptions
+       {
+           CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+           SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+           QueuePollInterval = TimeSpan.Zero,
+           UseRecommendedIsolationLevel = true,
+           DisableGlobalLocks = true
+       }));
+    builder.Services.AddHangfireServer();
 
     // configure strongly typed settings object
     services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
