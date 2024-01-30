@@ -24,7 +24,7 @@ namespace WebApi.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<ServiceResponse<List<AuthorDto>>>> GetSingleAuthor(){
+        public async Task<ActionResult<ServiceResponse<List<AuthorDto>>>> GetAllAuthor(){
             return Ok(await _authorService.GetAllAuthors());
         }
 

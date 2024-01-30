@@ -13,7 +13,7 @@
             };
         }
 
-        public static ResponseFormat ErrorResponseWithData(int statusCode, string message, dynamic data, dynamic errors = null)
+        public static ResponseFormat ErrorResponseWithData(int statusCode, string message, dynamic data, dynamic? errors = null)
         {
             return new ResponseFormat
             {

@@ -48,7 +48,7 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<ServiceResponse<List<MovieDto>>>> DeleteBook(int id)
+        public async Task<ActionResult<ServiceResponse<List<MovieDto>>>> DeleteMovie(int id)
         {
             return Ok(await _movieService.DeleteMovie(id));
         }

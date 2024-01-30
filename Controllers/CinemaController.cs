@@ -42,13 +42,13 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<ServiceResponse<List<CinemaDto>>>> UpdateBook(CinemaDto updateCinema)
+        public async Task<ActionResult<ServiceResponse<List<CinemaDto>>>> UpdateCinema(CinemaDto updateCinema)
         {
             return Ok(await _cinemaService.UpdateCinema(updateCinema));
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<ServiceResponse<List<CinemaDto>>>> DeleteBook(int id)
+        public async Task<ActionResult<ServiceResponse<List<CinemaDto>>>> DeleteCinema(int id)
         {
             return Ok(await _cinemaService.DeleteCinema(id));
         }
